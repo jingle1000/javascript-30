@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Scoped CSS Variables and JS</title>
+</head>
+<body>
+  <h2>Update CSS Variables with <span class='hl'>JS</span></h2>
+
+  <div class="controls">
+    <label for="size">Size:</label>
+    <input id="size" type="range" name="size" min="100" max="500" value="10" data-sizing="px">
+
+    <label for="blur">Blur:</label>
+    <input id="blur" type="range" name="blur" min="0" max="25" value="10" data-sizing="px">
+
+    <label for="bg">Base Color</label>
+    <input id="bg" type="color" name="bg" value="#ffc600">
+  </div>
+
+  <img src="https://source.unsplash.com/7bwQXzbF6KE/800x500">
+
+  <style>
+
+    :root {
+      --size: 100px;
+      --bg: #fff;
+      --blur: 0px;
+    }
+
+    body {
+      text-align: center;
+      background: var(--bg);
+      color: black;
+      font-family: 'helvetica neue', sans-serif;
+      font-weight: 100;
+      font-size: 50px;
+    }
+
+    img {
+      height: var(--size);
+      width: auto;
+      filter: blur(var(--blur));
+    }
+
+    .controls {
+      margin-bottom: 50px;
+    }
+
+    input {
+      width: 100px;
+    }
+  </style>
+  <script src="main.js"></script>
+
+</body>
+</html>
